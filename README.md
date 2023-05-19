@@ -21,7 +21,5 @@ Install the types from this repository by specifying the following in your `pack
 ```ts
 import { ProjectExplorerApi } from "@IBM/vscode-ibmi-projectexplorer-types";
 
-vscode.extensions.getExtension<ProjectExplorerApi>(
-  "IBM.vscode-ibmi-projectexplorer"
-);
+vscode.extensions.getExtension<ProjectExplorerApi>(`IBM.vscode-ibmi-projectexplorer`)
 ```
