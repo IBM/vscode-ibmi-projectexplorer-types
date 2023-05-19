@@ -1,0 +1,44 @@
+import { Uri, WorkspaceFolder } from "vscode";
+import { JobLogInfo } from "./jobLog";
+import { IProjectT } from "./iProjectT";
+import { LibraryType } from "./views/projectExplorer/library";
+export type EnvironmentVariables = {
+    [name: string]: string;
+};
+export declare class IProject {
+    workspaceFolder: WorkspaceFolder;
+    private name;
+    private state;
+    private jobLogs;
+    private environmentValues;
+    constructor(workspaceFolder: WorkspaceFolder);
+    getIProjFilePath(): Uri;
+    getJobLogPath(): Uri;
+    getBuildOutputPath(): Uri;
+    getName(): string;
+    getState(): Promise<IProjectT | undefined>;
+    updateState(): Promise<IProjectT>;
+    private resolveLibrary;
+    getUnresolvedState(): Promise<IProjectT | undefined>;
+    setState(state: IProjectT | undefined): void;
+    getEnvFilePath(): Uri;
+    addToIncludePaths(directoryToAdd: string): Promise<void>;
+    removeFromIncludePaths(directoryToRemove: string): Promise<void>;
+    getLibraryList(): Promise<any[]>;
+    addToLibraryList(library: string, position: 'preUsrlibl' | 'postUsrlibl'): Promise<void>;
+    setCurrentLibrary(library: string): Promise<void>;
+    removeFromLibraryList(library: string, type: LibraryType): Promise<void>;
+    updateIProj(iProject: IProjectT): Promise<void>;
+    readJobLog(): Promise<void>;
+    clearJobLogs(): Promise<void>;
+    projectFileExists(type: 'iproj.json' | 'joblog.json' | 'output.log' | '.env'): Promise<boolean>;
+    createProject(description: string): Promise<boolean>;
+    createEnv(): Promise<boolean>;
+    getEnv(): Promise<EnvironmentVariables>;
+    setEnv(variable: string, value: string): Promise<void>;
+    getJobLogs(): JobLogInfo[];
+    getVariables(): Promise<string[]>;
+    getObjectLibraries(): Promise<Set<string> | undefined>;
+    static validateIProject(content: string): IProjectT;
+    static validateJobLog(content: string): JobLogInfo;
+}
