@@ -39,6 +39,7 @@ export declare class IProject {
     getJobLogs(): JobLogInfo[];
     getVariables(): Promise<string[]>;
     getObjectLibraries(): Promise<Set<string> | undefined>;
+    getRemoteDir(): Promise<string>;
     static validateIProject(content: string): IProjectT;
     static validateJobLog(content: string): JobLogInfo;
 }
