@@ -2,6 +2,7 @@ import { Uri, WorkspaceFolder } from "vscode";
 import { JobLogInfo } from "./jobLog";
 import { IProjectT } from "./iProjectT";
 import { LibraryType } from "./views/projectExplorer/library";
+import { IBMiJsonT } from "./ibmiJsonT";
 export type EnvironmentVariables = {
     [name: string]: string;
 };
@@ -21,6 +22,7 @@ export declare class IProject {
     private resolveLibrary;
     getUnresolvedState(): Promise<IProjectT | undefined>;
     setState(state: IProjectT | undefined): void;
+    getBuildMap(): Promise<Map<string, IBMiJsonT>>;
     getEnvFilePath(): Uri;
     addToIncludePaths(directoryToAdd: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
