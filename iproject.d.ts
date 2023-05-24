@@ -10,6 +10,7 @@ export declare class IProject {
     workspaceFolder: WorkspaceFolder;
     private name;
     private state;
+    private buildMap;
     private jobLogs;
     private environmentValues;
     constructor(workspaceFolder: WorkspaceFolder);
@@ -23,6 +24,7 @@ export declare class IProject {
     getUnresolvedState(): Promise<IProjectT | undefined>;
     setState(state: IProjectT | undefined): void;
     getBuildMap(): Promise<Map<string, IBMiJsonT>>;
+    updateBuildMap(): Promise<Map<string, IBMiJsonT>>;
     getEnvFilePath(): Uri;
     addToIncludePaths(directoryToAdd: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
