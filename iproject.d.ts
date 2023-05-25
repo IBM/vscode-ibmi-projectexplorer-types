@@ -3,6 +3,7 @@ import { JobLogInfo } from "./jobLog";
 import { IProjectT } from "./iProjectT";
 import { LibraryType } from "./views/projectExplorer/library";
 import { IBMiJsonT } from "./ibmiJsonT";
+import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
 export type EnvironmentVariables = {
     [name: string]: string;
 };
@@ -28,7 +29,10 @@ export declare class IProject {
     getEnvFilePath(): Uri;
     addToIncludePaths(directoryToAdd: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
-    getLibraryList(): Promise<any[]>;
+    getLibraryList(): Promise<{
+        libraryInfo: IBMiObject;
+        libraryType: string;
+    }[] | undefined>;
     addToLibraryList(library: string, position: 'preUsrlibl' | 'postUsrlibl'): Promise<void>;
     setCurrentLibrary(library: string): Promise<void>;
     removeFromLibraryList(library: string, type: LibraryType): Promise<void>;
