@@ -26,6 +26,7 @@ export declare class IProject {
     setState(state: IProjectT | undefined): void;
     getBuildMap(): Promise<Map<string, IBMiJsonT>>;
     updateBuildMap(): Promise<Map<string, IBMiJsonT>>;
+    getIbmiJson(ibmiJsonUri: Uri, buildMap?: Map<string, IBMiJsonT>): Promise<IBMiJsonT | undefined>;
     getEnvFilePath(): Uri;
     addToIncludePaths(directoryToAdd: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
