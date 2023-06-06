@@ -1,7 +1,14 @@
-import { TreeItem } from "vscode";
+import { WorkspaceFolder } from "vscode";
 import { JobLogInfo } from "../../jobLog";
-export default class Log extends TreeItem {
+import { ProjectExplorerTreeItem } from "../projectExplorer/projectExplorerTreeItem";
+import { ContextValue } from "../../projectExplorerApi";
+/**
+ * Tree item for a log
+ */
+export default class Log extends ProjectExplorerTreeItem {
+    workspaceFolder: WorkspaceFolder;
+    static contextValue: ContextValue;
     jobLogInfo: JobLogInfo;
-    static contextValue: string;
-    constructor(jobLogInfo: JobLogInfo, isLocal?: boolean);
+    constructor(workspaceFolder: WorkspaceFolder, jobLogInfo: JobLogInfo, isLocal?: boolean);
+    getChildren(): ProjectExplorerTreeItem[];
 }

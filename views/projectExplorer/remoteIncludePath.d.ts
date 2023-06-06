@@ -1,13 +1,15 @@
 import { WorkspaceFolder } from "vscode";
 import { ContextValue } from "../../projectExplorerApi";
 import IFSDirectory from "./ifsDirectory";
+import { Position } from "./includePaths";
 /**
  * Tree item for a remote include path
  */
 export default class RemoteIncludePath extends IFSDirectory {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
-    constructor(workspaceFolder: WorkspaceFolder, includePath: string, custom?: {
+    variable?: string;
+    constructor(workspaceFolder: WorkspaceFolder, includePath: string, position?: Position, variable?: string, custom?: {
         label?: string;
     });
 }

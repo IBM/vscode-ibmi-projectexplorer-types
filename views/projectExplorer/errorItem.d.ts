@@ -9,7 +9,9 @@ export default class ErrorItem extends ProjectExplorerTreeItem {
     static contextValue: ContextValue;
     constructor(workspaceFolder: WorkspaceFolder | undefined, label: string, options?: {
         description?: string;
+        contextValue?: string;
         command?: Command;
+        tooltip?: string;
     });
     getChildren(): ProjectExplorerTreeItem[];
 }

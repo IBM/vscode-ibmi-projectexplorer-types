@@ -15,7 +15,10 @@ export declare enum ContextValue {
     library = "library",
     system = "_system",
     current = "_current",
-    user = "_user",
+    defaultUser = "_defaultUser",
+    preUser = "_preUser",
+    postUser = "_postUser",
+    configurable = "_configurable",
     objectFile = "objectFile",
     memberFile = "memberFile",
     ifsDirectory = "ifsDirectory",
@@ -23,7 +26,13 @@ export declare enum ContextValue {
     variable = "variable",
     includePaths = "includePaths",
     includePath = "includePath",
+    first = "_first",
+    middle = "_middle",
+    last = "_last",
     local = "_local",
     remote = "_remote",
-    error = "error"
+    error = "error",
+    log = "log",
+    command = "command",
+    message = "message"
 }

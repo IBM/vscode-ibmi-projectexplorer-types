@@ -1,13 +1,14 @@
 import { Uri, WorkspaceFolder } from "vscode";
 import { ContextValue } from "../../projectExplorerApi";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
+import { Position } from "./includePaths";
 /**
  * Tree item for a local include path
  */
 export default class LocalIncludePath extends ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
-    uri: Uri;
-    constructor(workspaceFolder: WorkspaceFolder, includePath: string, uri: Uri);
+    variable?: string;
+    constructor(workspaceFolder: WorkspaceFolder, includePath: string, uri: Uri, position?: Position, variable?: string);
     getChildren(): ProjectExplorerTreeItem[];
 }

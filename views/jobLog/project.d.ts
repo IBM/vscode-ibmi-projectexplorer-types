@@ -1,13 +1,12 @@
 import { WorkspaceFolder } from "vscode";
-import { MessageInfo } from "../../jobLog";
 import { ProjectExplorerTreeItem } from "../projectExplorer/projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 /**
- * Tree item for a message
+ * Tree item for a project
  */
-export default class Message extends ProjectExplorerTreeItem {
+export default class Project extends ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
-    constructor(workspaceFolder: WorkspaceFolder, msg: MessageInfo);
-    getChildren(): ProjectExplorerTreeItem[];
+    constructor(workspaceFolder: WorkspaceFolder, description?: string);
+    getChildren(): Promise<ProjectExplorerTreeItem[]>;
 }

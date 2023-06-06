@@ -6,7 +6,9 @@ export declare enum LibraryType {
     library = 0,
     systemLibrary = 1,
     currentLibrary = 2,
-    userLibrary = 3
+    preUserLibrary = 3,
+    postUserLibrary = 4,
+    defaultUserLibrary = 5
 }
 /**
  * Tree item for a library
@@ -16,7 +18,8 @@ export default class Library extends ProjectExplorerTreeItem {
     static contextValue: ContextValue;
     libraryInfo: IBMiObject;
     libraryType: LibraryType;
+    variable?: string;
     path: string;
-    constructor(workspaceFolder: WorkspaceFolder, libraryInfo: IBMiObject, libraryType: LibraryType);
+    constructor(workspaceFolder: WorkspaceFolder, libraryInfo: IBMiObject, libraryType: LibraryType, variable?: string);
     getChildren(): Promise<ProjectExplorerTreeItem[]>;
 }

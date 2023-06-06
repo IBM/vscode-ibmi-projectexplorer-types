@@ -1,7 +1,14 @@
-import { TreeItem } from "vscode";
+import { WorkspaceFolder } from "vscode";
 import { CommandInfo } from "../../jobLog";
-export default class Command extends TreeItem {
+import { ProjectExplorerTreeItem } from "../projectExplorer/projectExplorerTreeItem";
+import { ContextValue } from "../../projectExplorerApi";
+/**
+ * Tree item for a command
+ */
+export default class Command extends ProjectExplorerTreeItem {
+    workspaceFolder: WorkspaceFolder;
+    static contextValue: ContextValue;
     commandInfo: CommandInfo;
-    static contextValue: string;
-    constructor(commandInfo: CommandInfo);
+    constructor(workspaceFolder: WorkspaceFolder, commandInfo: CommandInfo);
+    getChildren(): ProjectExplorerTreeItem[];
 }

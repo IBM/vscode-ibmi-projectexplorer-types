@@ -7,6 +7,7 @@ import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
 export type EnvironmentVariables = {
     [name: string]: string;
 };
+export type Direction = 'up' | 'down';
 export declare class IProject {
     workspaceFolder: WorkspaceFolder;
     private name;
@@ -21,7 +22,7 @@ export declare class IProject {
     getName(): string;
     getState(): Promise<IProjectT | undefined>;
     updateState(): Promise<IProjectT>;
-    private resolveLibrary;
+    resolveVariable(lib: string, values: EnvironmentVariables): string;
     getUnresolvedState(): Promise<IProjectT | undefined>;
     setState(state: IProjectT | undefined): void;
     getBuildMap(): Promise<Map<string, IBMiJsonT>>;
@@ -29,7 +30,9 @@ export declare class IProject {
     getIbmiJson(ibmiJsonUri: Uri, buildMap?: Map<string, IBMiJsonT>): Promise<IBMiJsonT | undefined>;
     getEnvFilePath(): Uri;
     addToIncludePaths(directoryToAdd: string): Promise<void>;
+    configureAsVariable(attribute: keyof IProjectT, variable: string, value: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
+    moveIncludePath(pathToMove: string, direction: Direction): Promise<void>;
     getLibraryList(): Promise<{
         libraryInfo: IBMiObject;
         libraryType: string;
@@ -37,7 +40,7 @@ export declare class IProject {
     addToLibraryList(library: string, position: 'preUsrlibl' | 'postUsrlibl'): Promise<void>;
     setCurrentLibrary(library: string): Promise<void>;
     removeFromLibraryList(library: string, type: LibraryType): Promise<void>;
-    updateIProj(iProject: IProjectT): Promise<void>;
+    updateIProj(iProject: IProjectT): Promise<boolean>;
     readJobLog(): Promise<void>;
     clearJobLogs(): Promise<void>;
     projectFileExists(type: 'iproj.json' | 'joblog.json' | 'output.log' | '.env'): Promise<boolean>;
