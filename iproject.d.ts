@@ -4,6 +4,10 @@ import { IProjectT } from "./iProjectT";
 import { LibraryType } from "./views/projectExplorer/library";
 import { IBMiJsonT } from "./ibmiJsonT";
 import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
+export type LibraryList = {
+    libraryInfo: IBMiObject;
+    libraryType: string;
+}[];
 export type EnvironmentVariables = {
     [name: string]: string;
 };
@@ -13,6 +17,7 @@ export declare class IProject {
     private name;
     private state;
     private buildMap;
+    private libraryList;
     private jobLogs;
     private environmentValues;
     constructor(workspaceFolder: WorkspaceFolder);
@@ -21,7 +26,7 @@ export declare class IProject {
     getBuildOutputPath(): Uri;
     getName(): string;
     getState(): Promise<IProjectT | undefined>;
-    updateState(): Promise<IProjectT>;
+    updateState(): Promise<void>;
     resolveVariable(lib: string, values: EnvironmentVariables): string;
     getUnresolvedState(): Promise<IProjectT | undefined>;
     setState(state: IProjectT | undefined): void;
@@ -33,10 +38,9 @@ export declare class IProject {
     configureAsVariable(attribute: keyof IProjectT, variable: string, value: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
     moveIncludePath(pathToMove: string, direction: Direction): Promise<void>;
-    getLibraryList(): Promise<{
-        libraryInfo: IBMiObject;
-        libraryType: string;
-    }[] | undefined>;
+    getLibraryList(): Promise<LibraryList | undefined>;
+    setLibraryList(libraryList: LibraryList | undefined): void;
+    updateLibraryList(): Promise<void>;
     addToLibraryList(library: string, position: 'preUsrlibl' | 'postUsrlibl'): Promise<void>;
     setCurrentLibrary(library: string): Promise<void>;
     removeFromLibraryList(library: string, type: LibraryType): Promise<void>;

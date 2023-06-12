@@ -2,12 +2,25 @@ import { ExtensionContext, StatusBarItem, Uri, WorkspaceFolder } from "vscode";
 import { IProject } from "./iproject";
 import { ProjectExplorerTreeItem } from "./views/projectExplorer/projectExplorerTreeItem";
 /**
- * Project explorer related events
- *
  * * `projects` event is fired when there is a change to some project (create, update, or delete)
  * * `activeProject` event is fired when there is a change to the active project
+ * * `libraryList` event is fired when there is a change to a project's library list
+ * * `deployLocation` event is fired when there is a change to a project's deploy location
  */
-export type ProjectExplorerEvent = 'projects' | 'activeProject';
+export type ProjectExplorerEventT = 'projects' | 'activeProject' | 'libraryList' | 'deployLocation';
+/**
+ * Project explorer event
+ */
+export interface ProjectExplorerEvent {
+    /**
+     * Type of event
+     */
+    type: ProjectExplorerEventT;
+    /**
+     * Project associated with event
+     */
+    iProject?: IProject;
+}
 export declare class ProjectManager {
     private static loaded;
     private static activeProject;
@@ -20,7 +33,7 @@ export declare class ProjectManager {
     static getActiveProjectStatusBarItem(): StatusBarItem;
     static clear(): void;
     static initialize(context: ExtensionContext): void;
-    static onEvent(event: ProjectExplorerEvent, func: Function): void;
+    static onEvent(event: ProjectExplorerEventT, func: Function): void;
     static fire(event: ProjectExplorerEvent): void;
     static setActiveProject(workspaceFolder: WorkspaceFolder | undefined): void;
     static getProjects(): IProject[];
