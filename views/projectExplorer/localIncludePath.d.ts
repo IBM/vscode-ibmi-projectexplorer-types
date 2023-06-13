@@ -1,7 +1,7 @@
 import { Uri, WorkspaceFolder } from "vscode";
 import { ContextValue } from "../../projectExplorerApi";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
-import { Position } from "./includePaths";
+import { Position } from "../../iproject";
 /**
  * Tree item for a local include path
  */

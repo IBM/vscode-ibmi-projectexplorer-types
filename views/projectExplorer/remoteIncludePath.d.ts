@@ -1,7 +1,7 @@
 import { WorkspaceFolder } from "vscode";
 import { ContextValue } from "../../projectExplorerApi";
 import IFSDirectory from "./ifsDirectory";
-import { Position } from "./includePaths";
+import { Position } from "../../iproject";
 /**
  * Tree item for a remote include path
  */

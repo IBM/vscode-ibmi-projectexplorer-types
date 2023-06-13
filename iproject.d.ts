@@ -12,6 +12,7 @@ export type EnvironmentVariables = {
     [name: string]: string;
 };
 export type Direction = 'up' | 'down';
+export type Position = 'first' | 'last' | 'middle';
 export declare class IProject {
     workspaceFolder: WorkspaceFolder;
     private name;
@@ -44,6 +45,7 @@ export declare class IProject {
     addToLibraryList(library: string, position: 'preUsrlibl' | 'postUsrlibl'): Promise<void>;
     setCurrentLibrary(library: string): Promise<void>;
     removeFromLibraryList(library: string, type: LibraryType): Promise<void>;
+    moveLibrary(library: string, type: LibraryType, direction: Direction): Promise<void>;
     updateIProj(iProject: IProjectT): Promise<boolean>;
     readJobLog(): Promise<void>;
     clearJobLogs(): Promise<void>;

@@ -2,6 +2,7 @@ import { WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
+import { Position } from '../../iproject';
 export declare enum LibraryType {
     library = 0,
     systemLibrary = 1,
@@ -20,6 +21,6 @@ export default class Library extends ProjectExplorerTreeItem {
     libraryType: LibraryType;
     variable?: string;
     path: string;
-    constructor(workspaceFolder: WorkspaceFolder, libraryInfo: IBMiObject, libraryType: LibraryType, variable?: string);
+    constructor(workspaceFolder: WorkspaceFolder, libraryInfo: IBMiObject, libraryType: LibraryType, position?: Position, variable?: string);
     getChildren(): Promise<ProjectExplorerTreeItem[]>;
 }
