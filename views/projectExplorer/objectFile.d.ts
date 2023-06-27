@@ -1,4 +1,4 @@
-import { WorkspaceFolder } from "vscode";
+import { Uri, WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
@@ -10,6 +10,7 @@ export default class ObjectFile extends ProjectExplorerTreeItem {
     static contextValue: ContextValue;
     objectFileInfo: IBMiObject;
     path: string;
-    constructor(workspaceFolder: WorkspaceFolder, objectFileInfo: IBMiObject, pathToLibrary: string);
+    constructor(workspaceFolder: WorkspaceFolder, objectFileInfo: IBMiObject, pathToLibrary: string, sourcePhysicalFileInfo?: IBMiObject);
     getChildren(): Promise<ProjectExplorerTreeItem[]>;
+    getObjectResourceUri(): Uri;
 }
