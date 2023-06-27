@@ -38,6 +38,7 @@ export declare class IProject {
     configureAsVariable(attribute: keyof IProjectT, variable: string, value: string): Promise<void>;
     removeFromIncludePaths(directoryToRemove: string): Promise<void>;
     moveIncludePath(pathToMove: string, direction: Direction): Promise<void>;
+    setTargetLibraryForCompiles(library: string): Promise<void>;
     getLibraryList(): Promise<LibraryList | undefined>;
     setLibraryList(libraryList: LibraryList | undefined): void;
     updateLibraryList(): Promise<void>;
