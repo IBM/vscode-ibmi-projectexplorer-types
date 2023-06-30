@@ -25,7 +25,7 @@ export declare class IProject {
     constructor(workspaceFolder: WorkspaceFolder);
     getName(): string;
     getProjectFileUri(type: ProjectFileType): Uri;
-    projectFileExists(type: 'iproj.json' | 'joblog.json' | 'output.log' | '.env'): Promise<boolean>;
+    projectFileExists(type: ProjectFileType): Promise<boolean>;
     getState(): Promise<IProjectT | undefined>;
     updateState(): Promise<void>;
     setState(state: IProjectT | undefined): void;
