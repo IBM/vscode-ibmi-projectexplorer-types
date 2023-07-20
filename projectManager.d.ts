@@ -1,6 +1,7 @@
 import { ExtensionContext, StatusBarItem, Uri, WorkspaceFolder } from "vscode";
 import { IProject } from "./iproject";
 import { ProjectExplorerTreeItem } from "./views/projectExplorer/projectExplorerTreeItem";
+import { Validator } from "jsonschema";
 /**
  * * `projects` event is fired when there is a change to some project (create, update, or delete)
  * * `activeProject` event is fired when there is a change to the active project
@@ -25,16 +26,19 @@ export declare class ProjectManager {
     private static loaded;
     private static activeProject;
     private static activeProjectStatusBarItem;
+    private static validator;
     private static emitter;
     private static events;
-    static initialize(context: ExtensionContext): void;
+    static initialize(context: ExtensionContext): Promise<void>;
+    static getValidator(): Validator;
     static onEvent(event: ProjectExplorerEventT, func: Function): void;
     static fire(event: ProjectExplorerEvent): void;
-    static load(workspaceFolder: WorkspaceFolder): void;
+    static load(workspaceFolder: WorkspaceFolder): Promise<void>;
     static get(workspaceFolder: WorkspaceFolder): IProject | undefined;
+    static remove(workspaceFolder: WorkspaceFolder): Promise<void>;
     static clear(): void;
     static getActiveProject(): IProject | undefined;
-    static setActiveProject(workspaceFolder: WorkspaceFolder | undefined): void;
+    static setActiveProject(workspaceFolder: WorkspaceFolder | undefined): Promise<void>;
     static getActiveProjectStatusBarItem(): StatusBarItem;
     static getProjects(): IProject[];
     static getProjectFromName(name: string): IProject | undefined;

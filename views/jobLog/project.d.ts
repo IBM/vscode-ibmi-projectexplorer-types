@@ -1,12 +1,13 @@
 import { WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "../projectExplorer/projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
+import { IProjectT } from "../../iProjectT";
 /**
  * Tree item for a project
  */
 export default class Project extends ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
-    constructor(workspaceFolder: WorkspaceFolder, description?: string);
+    constructor(workspaceFolder: WorkspaceFolder, state?: IProjectT);
     getChildren(): Promise<ProjectExplorerTreeItem[]>;
 }

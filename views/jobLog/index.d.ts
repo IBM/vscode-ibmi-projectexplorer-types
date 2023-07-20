@@ -6,5 +6,5 @@ export default class JobLog implements TreeDataProvider<any> {
     constructor(context: ExtensionContext);
     refresh(): void;
     getTreeItem(element: ProjectExplorerTreeItem): ProjectExplorerTreeItem | Thenable<ProjectExplorerTreeItem>;
-    getChildren(element?: ProjectExplorerTreeItem): Promise<any[]>;
+    getChildren(element?: ProjectExplorerTreeItem): Promise<ProjectExplorerTreeItem[]>;
 }
