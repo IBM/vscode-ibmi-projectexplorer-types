@@ -1,6 +1,6 @@
 # vscode-ibmi-projectexplorer-types
 
-Type declarations for the [vscode-ibmi-projectexplorer](https://github.com/IBM/vscode-ibmi-projectexplorer) extension API
+Type definitions for the [vscode-ibmi-projectexplorer](https://github.com/IBM/vscode-ibmi-projectexplorer) extension API
 
 ---
 
