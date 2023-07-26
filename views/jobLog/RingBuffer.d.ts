@@ -12,5 +12,4 @@ export declare class RingBuffer<T> {
     toArray(): T[];
     fromArray(arr: T[]): void;
     getSize(): number;
-    sort(fn: (a: T, b: T) => number): void;
 }

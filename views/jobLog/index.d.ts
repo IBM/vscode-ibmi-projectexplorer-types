@@ -1,6 +1,6 @@
 import { ExtensionContext, TreeDataProvider } from "vscode";
 import { ProjectExplorerTreeItem } from "../projectExplorer/projectExplorerTreeItem";
-export default class JobLog implements TreeDataProvider<any> {
+export default class JobLog implements TreeDataProvider<ProjectExplorerTreeItem> {
     private _onDidChangeTreeData;
     readonly onDidChangeTreeData: import("vscode").Event<void | ProjectExplorerTreeItem>;
     constructor(context: ExtensionContext);

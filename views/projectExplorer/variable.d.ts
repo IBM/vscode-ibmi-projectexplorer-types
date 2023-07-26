@@ -7,6 +7,7 @@ import { ContextValue } from "../../projectExplorerApi";
 export default class Variable extends ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
+    value?: string;
     constructor(workspaceFolder: WorkspaceFolder, name: string, value?: string);
     getChildren(): ProjectExplorerTreeItem[];
 }

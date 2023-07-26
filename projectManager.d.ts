@@ -35,7 +35,6 @@ export declare class ProjectManager {
     static fire(event: ProjectExplorerEvent): void;
     static load(workspaceFolder: WorkspaceFolder): Promise<void>;
     static get(workspaceFolder: WorkspaceFolder): IProject | undefined;
-    static remove(workspaceFolder: WorkspaceFolder): Promise<void>;
     static clear(): void;
     static getActiveProject(): IProject | undefined;
     static setActiveProject(workspaceFolder: WorkspaceFolder | undefined): Promise<void>;
