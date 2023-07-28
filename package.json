@@ -1,11 +1,10 @@
 {
   "name": "vscode-ibmi-projectexplorer-types",
   "version": "1.0.0",
-  "description": "Type declarations for the vscode-ibmi-projectexplorer extension API",
+  "description": "Type definitions for the IBM i Project Explorer API",
   "author": "IBM",
   "typings": "./projectExplorerApi.d.ts",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IBM/vscode-ibmi-projectexplorer-types.git"
+    "url": "https://github.com/IBM/vscode-ibmi-projectexplorer-types.git"
   }
 }
