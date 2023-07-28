@@ -4,6 +4,7 @@
   "description": "Type definitions for the IBM i Project Explorer API",
   "author": "IBM",
   "typings": "./projectExplorerApi.d.ts",
+  "license": "Apache-2.0",
   "repository": {
     "url": "https://github.com/IBM/vscode-ibmi-projectexplorer-types.git"
   }
