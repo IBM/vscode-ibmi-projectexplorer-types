@@ -7,5 +7,9 @@
   "license": "Apache-2.0",
   "repository": {
     "url": "https://github.com/IBM/vscode-ibmi-projectexplorer-types.git"
+  },
+  "dependencies": {
+    "@halcyontech/vscode-ibmi-types": "^2.0.0",
+    "jsonschema": "^1.4.1"
   }
 }
