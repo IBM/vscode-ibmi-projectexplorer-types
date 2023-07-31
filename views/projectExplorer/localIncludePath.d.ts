@@ -1,11 +1,11 @@
-import { Uri, WorkspaceFolder } from "vscode";
+import { TreeItem, Uri, WorkspaceFolder } from "vscode";
 import { ContextValue } from "../../projectExplorerApi";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { Position } from "../../iproject";
 /**
  * Tree item for a local include path
  */
-export default class LocalIncludePath extends ProjectExplorerTreeItem {
+export default class LocalIncludePath extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
     variable?: string;

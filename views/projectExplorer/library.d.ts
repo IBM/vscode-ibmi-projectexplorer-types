@@ -1,4 +1,4 @@
-import { WorkspaceFolder } from "vscode";
+import { TreeItem, WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
@@ -15,7 +15,7 @@ export declare enum LibraryType {
 /**
  * Tree item for a library
  */
-export default class Library extends ProjectExplorerTreeItem {
+export default class Library extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
     libraryInfo: IBMiObject;

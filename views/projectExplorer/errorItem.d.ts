@@ -1,10 +1,10 @@
-import { Command, WorkspaceFolder } from "vscode";
+import { Command, TreeItem, WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 /**
  * Tree item for error information
  */
-export default class ErrorItem extends ProjectExplorerTreeItem {
+export default class ErrorItem extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder | undefined;
     static contextValue: ContextValue;
     constructor(workspaceFolder: WorkspaceFolder | undefined, label: string, options?: {

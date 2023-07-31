@@ -1,11 +1,11 @@
-import { WorkspaceFolder } from "vscode";
+import { TreeItem, WorkspaceFolder } from "vscode";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 import * as vscodeIbmiTypes from "@halcyontech/vscode-ibmi-types";
 /**
  * Tree item for an IFS directory
  */
-export default class IFSDirectory extends ProjectExplorerTreeItem {
+export default class IFSDirectory extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;
     static contextValue: ContextValue;
     ifsDirectoryInfo: vscodeIbmiTypes.IFSFile;
