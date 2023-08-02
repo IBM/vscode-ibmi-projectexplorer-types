@@ -3,7 +3,7 @@ import { ContextValue } from "../../projectExplorerApi";
 import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { Position } from "../../iproject";
 /**
- * Tree item for a local include path
+ * Tree item for a local include path.
  */
 export default class LocalIncludePath extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;

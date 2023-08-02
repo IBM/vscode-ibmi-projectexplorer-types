@@ -3,6 +3,9 @@ import { ProjectExplorerTreeItem } from "./projectExplorerTreeItem";
 import { ContextValue } from "../../projectExplorerApi";
 import { IBMiObject } from "@halcyontech/vscode-ibmi-types";
 import { Position } from '../../iproject';
+/**
+ * Represents the type of library.
+ */
 export declare enum LibraryType {
     library = 0,
     objectLibrary = 1,
@@ -13,7 +16,7 @@ export declare enum LibraryType {
     defaultUserLibrary = 6
 }
 /**
- * Tree item for a library
+ * Tree item for a library.
  */
 export default class Library extends TreeItem implements ProjectExplorerTreeItem {
     workspaceFolder: WorkspaceFolder;

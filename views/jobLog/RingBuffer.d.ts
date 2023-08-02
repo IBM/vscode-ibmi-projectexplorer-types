@@ -1,3 +1,6 @@
+/**
+ * Represents a ring buffer.
+ */
 export declare class RingBuffer<T> {
     private size;
     private start;

@@ -1,8 +1,14 @@
+/**
+ * Represents a command in a `joblog.json` file.
+ */
 export interface CommandInfo {
     cmd: string;
     cmd_time: string;
     msgs?: (MessageInfo)[];
 }
+/**
+ * Represents a message in a `joblog.json` file.
+ */
 export interface MessageInfo {
     msgid: string;
     type: string;
@@ -19,6 +25,9 @@ export interface MessageInfo {
     to_procedure: string;
     to_instruction: string;
 }
+/**
+ * Represents the content of a single `joblog.json` file.
+ */
 export declare class JobLogInfo {
     commands: CommandInfo[];
     createdTime: Date;
@@ -26,8 +35,9 @@ export declare class JobLogInfo {
     static createFromToTextForMsgEntity(msg: MessageInfo): string;
 }
 /**
- * Convert the date time string outputted by db2 to javascript date object
- * @param dateTime The string representation of the time in such format "2021-06-08-10.54.34.07141"
- * @returns A javascript Date object representing the time
+ * Convert the date time string outputted by db2 to a date object.
+ *
+ * @param dateTime The string representation of the date time (ex. 2021-06-08-10.54.34.07141).
+ * @returns A date object representing the date time.
  */
 export declare function parseDateTime(dateTime: string): Date;

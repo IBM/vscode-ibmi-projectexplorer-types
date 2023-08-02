@@ -3,7 +3,7 @@ import { ContextValue } from "../../projectExplorerApi";
 import IFSDirectory from "./ifsDirectory";
 import { Position } from "../../iproject";
 /**
- * Tree item for a remote include path
+ * Tree item for a remote include path.
  */
 export default class RemoteIncludePath extends IFSDirectory {
     workspaceFolder: WorkspaceFolder;
