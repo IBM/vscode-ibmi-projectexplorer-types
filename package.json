@@ -1,13 +1,21 @@
 {
   "name": "vscode-ibmi-projectexplorer-types",
-  "version": "1.0.0",
   "description": "Type definitions for the IBM i Project Explorer API",
-  "author": "IBM",
-  "typings": "./projectExplorerApi.d.ts",
+  "version": "1.0.0",
+  "author": {
+    "name": "IBM",
+    "url": "https://github.com/IBM"
+  },
+  "publisher": "IBM",
   "license": "Apache-2.0",
   "repository": {
     "url": "https://github.com/IBM/vscode-ibmi-projectexplorer-types.git"
   },
+  "homepage": "https://github.com/IBM/vscode-ibmi-projectexplorer-types/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/IBM/vscode-ibmi-projectexplorer/issues"
+  },
+  "typings": "./projectExplorerApi.d.ts",
   "dependencies": {
     "@halcyontech/vscode-ibmi-types": "^2.0.0",
     "jsonschema": "^1.4.1"
