@@ -1,5 +1,5 @@
 {
-  "name": "vscode-ibmi-projectexplorer-types",
+  "name": "@ibm/vscode-ibmi-projectexplorer-types",
   "description": "Type definitions for the IBM i Project Explorer API",
   "version": "1.0.0",
   "author": {
